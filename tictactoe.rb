@@ -36,12 +36,10 @@ class Game
 
     def startGame
         marks = ["X","O"]
-        marks.each_with_index do |mark,idx|
-            name = mark
-            '''
+        marks.each do |mark|
             print "Enter player #{mark} name: "
-            name = gets'''
-            @players.push(Player.new(name,marks[idx]))
+            name = gets(chomp: true)
+            @players.push(Player.new(name, mark))
         end
         printBoard()
         playGame()
